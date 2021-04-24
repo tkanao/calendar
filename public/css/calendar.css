@@ -1,41 +1,53 @@
 body {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #000;
-  color: #fff;
+    background-color: #EEFFFF !important;
 }
 
-.navbar-laravel {
-  background-color: #000;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+.day-blank {
+    background-color: #efefef;
 }
 
-.navbar-brand {
-  color: #fff !important;
+.day-sun .day{
+    color: red;
 }
 
-.nav-link {
-  color: #fff !important;
+.day-sat .day{
+    color: blue;
+}
+.calendar table td {
+    padding: 3px;
+    border: solid 1px #999 !important;
+    white-space: nowrap;
+}
+.calendar table td:before {
+    display: block;
+    float: left;
+    height: 110px !important;
+    content: "";
 }
 
-.table-dark {
-  color: #fff;
+.calendar table td .day {
+    margin-bottom: 0;
 }
 
-.list-group-item {
-  border-color: #fff;
-  background-color: #000;
+.calendar table td .amount {
+    display: block;
+    text-align: center;
+    font-size: 1.6vw;
+    margin-top: 10px;
+    padding:10px;
 }
 
-.login-box {
-  background-color: rgba(0, 0, 0, 0);
+.calendar table th {
+    text-align: center;
+    border: solid 1px #999 !important;
+    width: 14% !important;
 }
 
-.login-header {
-  background-color: rgba(0, 0, 0, 0.25);
+.holiday .day{
+    color: red !important;
+    font-weight: bold;
 }
 
-.login-body {
-  background-color: rgba(0, 0, 0, 0.25);
+.today {
+    background-color: #FFC7AF;
 }
-
