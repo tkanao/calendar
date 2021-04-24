@@ -31,5 +31,18 @@ class CalendarController extends Controller
     return view('calendar.create', ["calendar" => $calendar, "account" => $account]);
        
     }
-
+    
+    public function update(Request $request) {
+        $this->validate($request, Account::$rules);
+        
+        // データの保存
+        $account = new Account;
+        // $account->user_id = Account::where('user_id', Auth::User()->id)->first();
+        $form = $request->all();
+        unset($form['_token']);
+        $account->fill($form);
+        $account->save();
+        
+        return redirect('calendar/create');
+    }
 }

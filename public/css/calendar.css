@@ -51,3 +51,9 @@ body {
 .today {
     background-color: #FFC7AF;
 }
+
+.card-header {
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+}

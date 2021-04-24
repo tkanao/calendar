@@ -15,8 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'calendar'], function() {
-    Route::get('create', 'CalendarController@create')->middleware('auth');
+Route::group(['prefix' => 'calendar', 'middleware' => 'auth'], function() {
+    Route::get('create', 'CalendarController@create');
+    Route::post('create', 'CalendarController@update');
 });
 
 
