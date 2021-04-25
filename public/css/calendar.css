@@ -29,7 +29,7 @@ body {
     margin-bottom: 0;
 }
 
-.calendar table td .amount {
+.calendar table td .title {
     display: block;
     text-align: center;
     font-size: 1.6vw;
@@ -56,4 +56,40 @@ body {
     font-weight: bold;
     font-size: 30px;
     text-align: center;
+}
+
+.tool{
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+}
+.tool p{
+    margin:0;
+    padding:0;
+}
+.description {
+    display: none;
+    position: absolute;
+    padding: 10px;
+    font-size: 15px;
+    line-height: normal;
+    color: #fff;
+    border-radius: 5px;
+    background: gray;
+    width: 100px;
+}
+.description:before {
+    content: "";
+    position: absolute;
+    top: 0%;
+    right: 95%;
+    border: 15px solid transparent;
+    border-top: 15px solid gray;
+    margin-left: -15px;
+    transform: rotateZ(90deg);
+}
+.tool:hover .description{
+    display: inline-block;
+    top: 10px;
+    left: 100px;
 }

@@ -47,7 +47,7 @@
                         </div>
                         <div class="col-md-4">内容</div>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" name="mame">
+                            <input type="text" class="form-control" name="memo">
                         </div>
                             
                     </div>

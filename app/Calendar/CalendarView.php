@@ -60,26 +60,28 @@ class CalendarView {
                 $html[] = $day->render();
                     // カレンダーに予定を表示する
                     $html[] = '<div>';
-                    
                             // $dayがCalendarWeekDayのインスタンスならば内容を表示する
                             if(get_class($day) == 'App\Calendar\CalendarWeekDay'){
                                 $day_events = $this->getEvent($day);
-                                
-                                foreach((array)$day_events as $day_event) {
-                                    if ($day_event !== 0) {
+                                foreach($day_events as $key=>$vals) {
+                                    // 予定があれば表示する
+                                    if ($vals !== null) {
                                     $html[] = '<div class="title tool">';
-                                        $html[] = $day_event->title;
+                                        $html[] = $vals['title'];
                                             $html[] = '<div class="description">';
-                                                    $html[] = $day_event->memo .'<br>';}
+                                                    $html[] = $vals['memo'];
                                             $html[] = '</div>';
-                                    $html[] = '</div>';}
+                                    $html[] = '</div>';
+                                    }
                                 }
 
                             }
                             
                     $html[] = '</div>'; 
                 $html[] = '</td>';
+            }
             $html[] = '</tr>';
+            
         }
         
         $html[] = '</tbody>';

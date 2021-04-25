@@ -20,27 +20,23 @@ class CalendarController extends Controller
 
     // カレンダーに渡す
     $calendar = new CalendarView($date);
-
-    // accountにaccount_idを作成
-    $account = Account::where('user_id', Auth::User()->id)->first();
-    if ($account === null) {
-       $account = new Account();
-       $account->user_id =  Auth::User()->id;
-       $account->save();}
-
-    return view('calendar.create', ["calendar" => $calendar, "account" => $account]);
+    
+    return view('calendar.create', ["calendar" => $calendar]);
        
     }
     
     public function update(Request $request) {
         $this->validate($request, Account::$rules);
-        
+
         // データの保存
         $account = new Account;
-        // $account->user_id = Account::where('user_id', Auth::User()->id)->first();
+        if ($account->user_id === null) {
+            $account->user_id = Auth::User()->id;
+        } 
         $form = $request->all();
         unset($form['_token']);
         $account->fill($form);
+        
         $account->save();
         
         return redirect('calendar/create');
