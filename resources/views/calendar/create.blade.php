@@ -35,21 +35,24 @@
                 <div class="card-header text-center">
                     予定入力
                 </div>
-                <div class="card-body">
+                <div class="card-body event">
                     <div class="row justify-content-center">
-                        <div class="col-md-4">日付</div>
+                        <div class="col-md-4 text-center">日付</div>
                         <div class="col-md-8">
                             <input type="date" class="form-control" name="date">                    
-                        </div>
-                        <div class="col-md-4">タイトル</div>
+                        </div>    
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-4 text-center">タイトル</div>
                         <div class="col-md-8">
                             <input type="text" class="form-control" name="title">
                         </div>
-                        <div class="col-md-4">内容</div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-4 text-center">内容</div>
                         <div class="col-md-8">
                             <input type="text" class="form-control" name="memo">
                         </div>
-                            
                     </div>
                     <br>
                     {{ csrf_field() }}
