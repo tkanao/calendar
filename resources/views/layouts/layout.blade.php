@@ -33,15 +33,6 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNav4">
                         <ul class="navbar-nav ml-auto">
-                            <!--<li class="nav-item">-->
-                            <!--    <a class="nav-link" href="create">カレンダーへ</a>-->
-                            <!--</li>-->
-                            <!--<li class="nav-item">-->
-                            <!--    <a class="nav-link" href="edit">入力画面へ</a>-->
-                            <!--</li>-->
-                            <!--<li class="nav-item">-->
-                            <!--    <a class="nav-link" href="index">明細一覧へ</a>-->
-                            <!--</li>-->
                             @guest
                                 <li><a class="nav-link" href="{{ route('login') }}">{{ __('messages.Login') }}</a></li>
                             {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}

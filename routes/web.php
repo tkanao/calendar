@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::group(['prefix' => 'calendar', 'middleware' => 'auth'], function() {
     Route::get('create', 'CalendarController@create');
@@ -24,3 +21,6 @@ Route::group(['prefix' => 'calendar', 'middleware' => 'auth'], function() {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::redirect('/home', '/calendar/create', 301);
+Route::redirect('/', '/calendar/create', 301);
