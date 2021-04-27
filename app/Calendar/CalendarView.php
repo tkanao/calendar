@@ -1,9 +1,11 @@
 <?php
 namespace App\Calendar;
 
+use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use Yasumi\Yasumi;
 use App\Account;
+use App\User;
 use App\Calendar\CalendarWeekDay;
 
 class CalendarView {
@@ -63,15 +65,23 @@ class CalendarView {
                             // $dayがCalendarWeekDayのインスタンスならば内容を表示する
                             if(get_class($day) == 'App\Calendar\CalendarWeekDay'){
                                 $day_events = $this->getEvent($day);
-                                foreach($day_events as $key=>$vals) {
-                                    // 予定があれば表示する
-                                    if ($vals !== null) {
-                                    $html[] = '<div class="title tool">';
-                                        $html[] = $vals['title'];
+                                foreach($day_events as $vals) {
+                                    // 自分の予定を表示する
+                                    if ($vals['user_id'] == Auth::User()->id) {
+                                    $html[] = '<div class="mytitle tool">';
+                                        $html[] = $vals['user_name'] . '：' . $vals['title'];
                                             $html[] = '<div class="description">';
                                                     $html[] = $vals['memo'];
                                             $html[] = '</div>';
                                     $html[] = '</div>';
+                                    } elseif ($vals !== null) {
+                                    $html[] = '<div class="title tool">';
+                                        $html[] = $vals['user_name'] . '：' . $vals['title'];
+                                            $html[] = '<div class="description">';
+                                                    $html[] = $vals['memo'];
+                                            $html[] = '</div>';
+                                    $html[] = '</div>';
+                                        
                                     }
                                 }
 

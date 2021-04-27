@@ -16,6 +16,7 @@ class CreateAccountsTable extends Migration
         Schema::create('accounts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('user_id');
+            $table->string('user_name');
             $table->string('title');
             $table->string('memo');
             $table->date('date');

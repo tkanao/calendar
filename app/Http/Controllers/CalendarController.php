@@ -32,6 +32,7 @@ class CalendarController extends Controller
         $account = new Account;
         if ($account->user_id === null) {
             $account->user_id = Auth::User()->id;
+            $account->user_name = Auth::User()->name;
         } 
         $form = $request->all();
         unset($form['_token']);
